@@ -52,8 +52,8 @@
             alert("密碼錯誤");
         }else{
             $.get("./api/chk_acc.php",{acc:user.acc},(res)=>{         //資訊取得 所以用get  如果會動到資料庫，會用post
-              if(parseInt(res)>0){            //本來==1,改成>0
-                alert("帳號重複")
+              if(parseInt(res)>0){                                    //本來==1,改成>0
+                alert("帳號重複")                                      // JavaScript 中，parseInt() 是用來將一個字串轉換成整數的函數。其用途是將一個字串（例如："123"）轉換成相應的數字（例如：123）
               }else{
                 $.post("./api/reg.php",user,(res)=>{
                     if(parseInt(res)==1){
