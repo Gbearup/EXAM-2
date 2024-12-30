@@ -20,9 +20,9 @@
 	</div>
 	<div id="all">
 		<div id="title">
-			<?=date("m 月 d 號 l");?> | 今日瀏覽: <?=$Total->find(['date'=>date("Y-m-d")])['total'];?>
+		<?=date("m 月 d 號 l");?> | 今日瀏覽: <?=$Total->find(['date'=>date("Y-m-d")])['total'];?>
 			                          | 累積瀏覽: <?=$Total->sum('total');?> 
-			<a href="index.php" style="float:right">回首頁</a>							
+			<a href="index.php" style="float:right">回首頁</a>		
 		</div>
 		<div id="title2">
 			<a href="index.php" title="健康促進網-回首頁">
@@ -31,11 +31,11 @@
 		</div>
 		<div id="mm">
 			<div class="hal" id="lef">
+				<a class="blo" href="?do=acc">帳號管理</a>
 				<a class="blo" href="?do=po">分類網誌</a>
-				<a class="blo" href="?do=news">最新文章</a>
-				<a class="blo" href="?do=pop">人氣文章</a>
-				<a class="blo" href="?do=know">講座訊息</a>
-				<a class="blo" href="?do=que">問卷調查</a>
+				<a class="blo" href="?do=news">最新文章管理</a>
+				<a class="blo" href="?do=know">講座管理</a>
+				<a class="blo" href="?do=que">問卷管理</a>
 			</div>
 			<div class="hal" id="main">
 				<div>
@@ -51,11 +51,11 @@
 				</div>
 			<?php
 				$do=$_GET['do']??'main';
-				$file="front/".$do.".php";
+				$file="back/".$do.".php";
 				if(file_exists($file)){
 					include $file;
 				}else{
-					include "front/main.php";
+					include "back/main.php";
 				}
 
 			?>
