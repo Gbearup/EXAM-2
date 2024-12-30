@@ -10,7 +10,7 @@
         </tr>
 
         <tr> 
-            <td id="result"></td>
+            <td id="result"></td>  
         </tr>
 
 
