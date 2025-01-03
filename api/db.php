@@ -6,6 +6,12 @@ class DB{
     protected $dsn="mysql:host=localhost;charset=utf8;dbname=db13";
     protected $pdo;
     protected $table;
+    static public $type=[
+        1=>'健康新知',
+        2=>'菸害防制',
+        3=>'癌症防治',
+        4=>'慢性病防治',
+    ];
 
     function __construct($table){
         $this->table=$table;
@@ -165,6 +171,7 @@ $Total=new DB('total');
 $User=new DB('users');
 $News=new DB('news');
 $Que=new DB('que');
+$Log=new DB('log');
 
 
 
