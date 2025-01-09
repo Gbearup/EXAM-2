@@ -33,5 +33,14 @@ function all(...$arg){
 
 
 
+
+$do=$_GET['do']??'main';
+$file="front/".$do.".php";
+ if (file_exist($file)){
+    include $file;
+ }else{
+    include "front/main.php";
+}
+
 }
 ?>
