@@ -1,46 +1,22 @@
 <?PHP
-session_start();
 
-class DB{
-    protected $dsn="mysql:host=localhost; charset=utf8; dbname=db13";
-    protected $pdo;
-    protected $table;
+if(!empty($_SESSION['view'])){
+   if($Total->count(['date'->date("Y-m-d")])>0){
+     
+    $total=$Total->find(['date'->date("Y-m-d")]);
+    $total('total')++;
+    $Total->save(['date'->date("Y-m-d")]);
+   
+   }else{
 
-    function __construct($table){
-        $this->table=$table;
-        $this->pdo=new pdo($this->dsn,'root','');
-    }
+    $Total->save(['date'->date("Y-m-d"),'total'=>1]);
+   }
 
-
-
-function all(...$arg){
-    $sql="SELECT * FROM $this->table";
-    if(!empty($arg[0])){
-       if(is_array($arg[0])){
-        $where=$this->a2s($arg[0]);
-        $sql=$sql . "WHERE" . join("&&", $where);
-       }else{
-        $sql.=$arg[0];
-       }
-       }
-
-    if(!empty($arg[1])){
-        $sql=$sql.$arg[1];
-    }
-
-    return $this->fetchAll($sql);
-}
-
-
-
-
-$do=$_GET['do']??'main';
-$file="front/".$do.".php";
- if (file_exist($file)){
-    include $file;
- }else{
-    include "front/main.php";
-}
+   $_SESSION['view']=1;
 
 }
+
 ?>
+
+
+如果 物件去數今天的日期數量
